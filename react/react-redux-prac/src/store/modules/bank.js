@@ -33,7 +33,8 @@ export function bank(state = initialState, action) {
     switch (action.type) {
         case DEPOSIT:
             return {
-                balance: Number(state.balance) + Number(action.payload),
+                balance: state.balance + Number(action.payload),
+                // balance: Number(state.balance) + Number(action.payload),
                 history: [{ datetime: new Date().toLocaleString(), type: '입금', amount: action.payload }, ...state.history],
             };
         case WITHDRAW:
