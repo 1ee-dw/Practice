@@ -14,7 +14,14 @@ function TodoList() {
     return (
         <>
             <h1>할 일 적기</h1>
-            <input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
+            <div>
+                <input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
+                {!value ? (
+                    <div>
+                        <span>한 글자 이상 작성해주세요</span>
+                    </div>
+                ) : null}
+            </div>
             <input type="button" value="등록" onClick={insert} />
             <input type="button" value="초기화" onClick={() => dispatch(reset())} />
             <ul>
